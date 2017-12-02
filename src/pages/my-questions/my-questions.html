@@ -1,0 +1,47 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModal()">
+              <ion-icon item-right name="ios-close-outline"></ion-icon>
+          </button>
+  </ion-buttons>
+    <ion-title>MyQuestions</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab top right edge>
+        <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list>
+          <button ion-fab (click)="makeQuestion()"><ion-icon name="add" ></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-card *ngFor="let card of cards" (click)="viewCard(card.Encabezado)">
+                <ion-card-header>
+                  {{ card.Encabezado }}
+                </ion-card-header>
+                <ion-card-content>
+                <p>
+                  {{ card.Pregunta }}
+                </p>
+                  <p>
+                    {{ card.Materia }}
+                  </p>
+                   </ion-card-content>
+              </ion-card>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+     
+
+</ion-content>

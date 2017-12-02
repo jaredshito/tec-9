@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      <img src="assets/img/logo.png" class="navbarLogo" />
+    <ion-title>
+      Homepage
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+
+  
+  
+  <ion-fab top right edge>
+    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab (click)="makeQuestion()"><ion-icon name="add" ></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-card (click) = "BdQuestion('Base De Datos')">
+    <img src="assets/img/BD.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Base de Datos
+        </ion-card-title>
+        
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click) = "BdQuestion('Programacion Orientada a Objetos')">
+    <img src="assets/img/poo.png"/>
+    <ion-card-content>
+      <ion-card-title>
+        Programacion Orientada a Objetos
+        </ion-card-title>
+        
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-card (click) = "BdQuestion('Inteligencia Artificial')">
+    <img src="assets/img/IA.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Inteligencia Artificial
+        </ion-card-title>
+        
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

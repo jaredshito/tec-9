@@ -1,0 +1,40 @@
+
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Informacion de usuario</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding class="body">
+    <div class="formulario">
+     
+      <ion-item>
+        <ion-label>Nombre de usuario:</ion-label>
+        <ion-input [(ngModel)]="Usuario.nombreUsuario" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label>Primer Nombre:</ion-label>
+          <ion-input [(ngModel)]="Usuario.primerNombre" type="text"></ion-input>
+        </ion-item>
+  
+      <ion-item>
+        <ion-label>Apellido:</ion-label>
+        <ion-input [(ngModel)]="Usuario.apellido" type="text"></ion-input>
+      </ion-item>
+
+      <!--<ion-item>
+        <ion-label>Repite tu email:</ion-label>
+        <ion-input [(ngModel)]="Usuario.email" type="text"></ion-input>
+      </ion-item>
+    -->
+  
+      <button ion-button blick color="dark" (click)="guardar()" >Guardar</button>
+  
+    </div>
+  
+  </ion-content>
+  
