@@ -89,6 +89,7 @@ Preguntar(){
   this.navCtrl.setRoot(HomePage);
   console.log(Comentario);
   console.log(Question);
+  console.log("perfecto we si se inserto");
 
 }
 
