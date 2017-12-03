@@ -37,7 +37,7 @@ export class BdquestionsPage {
     
           for(var i = 0; i < keys.length; i++) {
             var k = keys[i];
-            if(keys[i]== this.id){
+            
               var datoQuestion = datos[k];
               
               for(var j in datoQuestion){
@@ -55,7 +55,7 @@ export class BdquestionsPage {
                   );
                 }
               }
-            }
+            
           }
         }
       });
@@ -64,7 +64,7 @@ export class BdquestionsPage {
     console.log('ionViewDidLoad MyQuestionsPage');
   }
   viewCard(Encabezado : string){
-    let cardview = this.modalCtrl.create(CardviewmyquestionsPage, {cardEncabezado: Encabezado});
+    let cardview = this.modalCtrl.create(CardviewquestionsbdPage, {cardEncabezado: Encabezado});
     cardview.present();
   }
   closeModal() {

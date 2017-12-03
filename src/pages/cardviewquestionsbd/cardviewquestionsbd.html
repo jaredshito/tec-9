@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cardviewquestionsbd</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModal()">
+              <ion-icon item-right name="ios-close-outline"></ion-icon>
+          </button>
+  </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div>
+        <h1>{{ cards.Encabezado }}</h1>
+        <p>{{ cards.Pregunta }}</p>
+        <p>{{ cards.Materia }}</p>
+    </div>
+
+    <ion-item>
+        <ion-label floating>Comentar:</ion-label>
+        <ion-textarea [(ngModel)]="Comentario.Coment"></ion-textarea>
+      </ion-item>
+      <button (click)= "Preguntar()">Publicar</button>
+      
 
 </ion-content>

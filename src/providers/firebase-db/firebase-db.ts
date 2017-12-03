@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AuthProvider } from '../auth/auth';
+import firebase from 'firebase';
 /*
   Generated class for the FirebaseDbProvider provider.
 
@@ -25,4 +26,12 @@ export class FirebaseDbProvider {
   }
       return this.afDB.database.ref('Question/'+this.auth.getUser()+'/'+Question.id).set(Question) 
       }
+  
+      guardarComentario(Comentario,Question){
+    if(! Comentario.id){
+      Comentario.id = Date.now();  
+    }
+    firebase.database().ref('Question/'+this.auth.getUser()+'/'+Question.id+'/'+Comentario.id).set(Comentario);
+
+  }
  }
