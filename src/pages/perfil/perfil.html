@@ -3,6 +3,11 @@
 
   <ion-navbar>
     <ion-title>perfil</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+</ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -11,18 +16,16 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label>Nombre de usuario:</ion-label>
-    <ion-input  type="text"></ion-input>
+    
+    <p>Nombre de usuario: <span>{{card.nombreDeUsuario}}</span></p>
   </ion-item>
   
   <ion-item>
-      <ion-label>Primer Nombre:</ion-label>
-      <ion-input  type="text"></ion-input>
+      <p>Nombre : <span>{{card.PrimerNombre}}</span></p>
     </ion-item>
   
   <ion-item>
-    <ion-label>Apellido:</ion-label>
-    <ion-input  type="text"></ion-input>
+      <p>Apellido: <span>{{card.apellido}}</span></p>
   </ion-item>
 
   <button ion-button color="positive" block (click)="logMeOut()">
