@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { CardviewmyquestionsPage } from '../cardviewmyquestions/cardviewmyquestions';
 import { HomePage } from '../home/home';
 import {CreateQuestionPage} from '../create-question/create-question'
+import { CardviewquestionsbdPage } from '../cardviewquestionsbd/cardviewquestionsbd';
 
 
 
@@ -51,7 +52,7 @@ export class MyQuestionsPage {
     console.log('ionViewDidLoad MyQuestionsPage');
   }
   viewCard(Encabezado : string){
-    let cardview = this.modalCtrl.create(CardviewmyquestionsPage, {cardEncabezado: Encabezado});
+    let cardview = this.modalCtrl.create(CardviewquestionsbdPage, {cardEncabezado: Encabezado});
     cardview.present();
   }
   closeModal() {
