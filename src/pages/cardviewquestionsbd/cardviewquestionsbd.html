@@ -1,9 +1,3 @@
-<!--
-  Generated template for the CardviewquestionsbdPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -19,16 +13,40 @@
 
 <ion-content padding>
     <div>
-        <h1>{{ cards.Encabezado }}</h1>
+        
+        <h2>{{ cards.Encabezado }}</h2>
         <p>{{ cards.Pregunta }}</p>
         <p>{{ cards.Materia }}</p>
+        <p>Publicado por : <span id ="usuario"> {{cards.UserNombre}}</span></p>
     </div>
-
-    <ion-item>
-        <ion-label floating>Comentar:</ion-label>
-        <ion-textarea [(ngModel)]="Comentario.Coment"></ion-textarea>
-      </ion-item>
-      <button (click)= "Preguntar()">Publicar</button>
+    
+    <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-list>
+                  <ion-card *ngFor="let card of Komentario"  >
+                    <ion-card-header>
+                      {{ card.Usuario }}
+                    </ion-card-header>
+                    <ion-card-content>
+                    <p>
+                      {{ card.com }}
+                    </p>
+                       </ion-card-content>
+                  </ion-card>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
       
 
 </ion-content>
+<ion-footer>
+<ion-toolbar>
+        <ion-item>
+                <ion-label floating>Comentar:</ion-label>
+                <ion-textarea [(ngModel)]="Comentario.Coment"></ion-textarea>
+              </ion-item>
+    <button ion-button color="positive" block (click)="Comentar()" >Comentar</button>
+</ion-toolbar>
+</ion-footer>

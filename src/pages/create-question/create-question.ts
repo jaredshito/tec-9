@@ -4,6 +4,7 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import { FirebaseDbProvider } from '../../providers/firebase-db/firebase-db'
 import{ AuthProvider } from '../../providers/auth/auth'
 import { HomePage } from '../home/home';
+import firebase from 'firebase';
 
 /**
  * Generated class for the CreateQuestionPage page.
@@ -18,7 +19,8 @@ import { HomePage } from '../home/home';
   templateUrl: 'create-question.html',
 })
 export class CreateQuestionPage {
-  Question = {id:'',Materia:'',Encabezado:'', Pregunta:'' }
+  Question = {id:'',Materia:'',Encabezado:'', Pregunta:'', Usuario:''}
+  UserNombre = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private dbFirebase : FirebaseDbProvider,
@@ -26,15 +28,34 @@ export class CreateQuestionPage {
 public auth : AuthProvider
 ) {
 this.Question = this.navParams.data;
+firebase.database().ref('Usuario/'+firebase.auth().currentUser.uid).on('value', data =>{
+  if(data.val() != null){
+    var datos = data.val();
+    var keys = Object.keys(datos)
+
+    for(var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      
+        var datoQuestion = datos[k];
+        if(datoQuestion.nombreUsuario){
+          console.log(datoQuestion.nombreUsuario);
+          this.UserNombre = datoQuestion.nombreUsuario;
+        }
+    }
+  }
+});
+console.log(this.UserNombre);
 }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateQuestionPage');
   }
+  
 
   guardar(){
     let Question = {
       id : this.Question.id,
+      Usuario :  this.UserNombre,
       Materia : this.Question.Materia,
       Encabezado : this.Question.Encabezado,
       Pregunta : this.Question.Pregunta,

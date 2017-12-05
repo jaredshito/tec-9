@@ -60,6 +60,9 @@ export class BdquestionsPage {
         }
       });
   }
+
+  
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyQuestionsPage');
   }
