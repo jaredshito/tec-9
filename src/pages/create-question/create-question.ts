@@ -59,6 +59,7 @@ console.log(this.UserNombre);
       Materia : this.Question.Materia,
       Encabezado : this.Question.Encabezado,
       Pregunta : this.Question.Pregunta,
+      UsuarioId : firebase.auth().currentUser.uid
       
       
 

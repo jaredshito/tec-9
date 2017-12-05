@@ -17,7 +17,7 @@ import { CardviewmyquestionsPage } from '../cardviewmyquestions/cardviewmyquesti
 export class CardviewquestionsbdPage {
   Question = { id : "" };
   Comentario = {Usuario : "", Coment : "", id: "" };
-  cards = {Encabezado: "", Materia: "", Pregunta: "", id: "",UserNombre:""};
+  cards = {Encabezado: "", Materia: "", Pregunta: "", id: "",UserNombre:"",userId:""};
   Titulo = this.navParams.get("cardEncabezado");
   idUser = firebase.auth().currentUser.uid;
   Komentario = [];
@@ -59,11 +59,7 @@ public appCtrl : App) {
                     this.cards.Pregunta = datoQuestion[j].Pregunta;
                     this.cards.id = datoQuestion[j].id;
                     this.cards.UserNombre = datoQuestion[j].Usuario;
-                    
-                    
-
-                    
-                
+                    this.cards.userId = datoQuestion[j].UsuarioId;
               }
             }
           
@@ -116,7 +112,7 @@ public appCtrl : App) {
   }
 
   closeModal() {
-    this.navCtrl.setRoot(HomePage);
+    this.viewCtrl.dismiss();
     
 }
 obtenerUsuario(){
@@ -141,6 +137,7 @@ obtenerUsuario(){
 Comentar(){
 
   let Comentario = {
+    usuarioId : firebase.auth().currentUser.uid,
     Usuario : this.nombreDeUsuario,
     Comentario : this.Comentario.Coment,
     id : Date.now()
@@ -151,12 +148,13 @@ Comentar(){
   }
   
   
-  firebase.database().ref('Question/'+this.auth.getUser()+'/'+Question.id+'/'+Comentario.id).set(Comentario);
+  firebase.database().ref('Question/'+this.cards.userId+'/'+Question.id+'/'+Comentario.id).set(Comentario);
   this.Komentario = [];
   this.MostrarComentario(); 
   //console.log(Comentario);
   //console.log(Question);
   //console.log("perfecto we si se inserto");
+  this.Comentario.Coment = "";
 
 }
 
